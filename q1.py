@@ -1,3 +1,7 @@
+"""
+Question: Given a string representing a Roman numeral, write a function to compute the Arabic numerical equivalent. For example roman_to_arabic("MDCCLXXVI") should return 1776.
+"""
+
 import sys
 
 def romanToArabic(input):
@@ -19,7 +23,7 @@ def romanToArabic(input):
         try:
             sum += numberMap[c]
         except:
-            print('Unrecognized character \'{0}\' - please unsure all characters are Roman and try again'.format(c))
+            print('Unrecognized character \'{0}\' - please ensure all characters are Roman and try again'.format(c))
             return False
     print('Arabic representation of number is {0}!'.format(sum))
     return sum
