@@ -1,5 +1,7 @@
 """
-Question: Given a string representing a Roman numeral, write a function to compute the Arabic numerical equivalent. For example roman_to_arabic("MDCCLXXVI") should return 1776.
+Question:
+ Given a string representing a Roman numeral, write a function to compute the Arabic numerical equivalent. 
+ For example roman_to_arabic("MDCCLXXVI") should return 1776.
 """
 
 import sys
