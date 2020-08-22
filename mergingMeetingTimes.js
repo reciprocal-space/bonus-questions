@@ -32,13 +32,11 @@ function mergeRanges(times){
 
     let index = 0;
     while ( index <= ( times.length - 1 ) ){
-        console.log('index1',times[index])
         let timeBlockMin = times[index].startTime;
         let timeBlockMax = times[index].endTime;
 
         let index2 = index + 1;
         while ( index2 <= times.length -1 ){
-            console.log('index2', times[index2])
 
             let checkStartTime = times[index2].startTime;
             let checkEndTime = times[index2].endTime;
@@ -85,7 +83,7 @@ function testMeetings(){
     ];
 
     for (t of tests){
-        console.log(mergeRanges(t, '\n'))
+        console.log('Result:', mergeRanges(t), '\n')
     }
 
 }
