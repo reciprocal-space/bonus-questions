@@ -9,6 +9,7 @@
 ```
 Write a generic function to compute various scenarios for the following optimization problem: 
 A farmer owns X acres of land. She profits P1 dollars per acre of corn and P2 dollars per acre of oats. 
-Her team has Y hours of labor available. The corn takes H1 hours of labor per acre and oats require H2 hours of labor per acre. 
+Her team has Y hours of labor available. The corn takes H1 hours of labor per acre and oats require
+H2 hours of labor per acre. 
 How many acres of each can be planted to maximize profits?
 ```
