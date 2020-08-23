@@ -79,7 +79,15 @@ function testMeetings(){
           { startTime: 3,  endTime: 5 },
           { startTime: 4,  endTime: 8 },
           { startTime: 10, endTime: 12 },
-          { startTime: 9,  endTime: 10 },]
+          { startTime: 9,  endTime: 10 }, ],
+        [ { startTime: 1, endTime: 2 },
+          { startTime: 2, endTime: 3 } ],
+        [ { startTime: 1, endTime: 5 },
+          { startTime: 2, endTime: 3 } ],
+        [ { startTime: 1, endTime: 10 },
+          { startTime: 2, endTime: 6 },
+          { startTime: 3, endTime: 5 },
+          { startTime: 7, endTime: 9 } ] 
     ];
 
     for (t of tests){
