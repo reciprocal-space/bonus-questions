@@ -22,46 +22,36 @@ your function would return:
 Do not assume the meetings are in order. The meeting times are coming from multiple teams. 
 **/
 
-function mergeRanges(times){
+function sortMeetings(meetingTimes){
+   return meetingTimes.sort((a, b) => {
+       return a.startTime - b.startTime;
+   })
+}
 
-    if ( times.length <= 1 ){
-        return times
+function mergeRanges(meetingTimes){
+
+    if ( meetingTimes.length <= 1 ){
+        return meetingTimes;
     }
 
-    let r = [];
+    let sortedTimes = sortMeetings(meetingTimes);
+
+    let mergedMeetings = [sortedTimes[0]];
 
     let index = 0;
-    while ( index <= ( times.length - 1 ) ){
-        let timeBlockMin = times[index].startTime;
-        let timeBlockMax = times[index].endTime;
+    while ( index <= sortedTimes.length - 1 ){
+        let currentMeeting = sortedTimes[index];
+        let lastMergedMeeting = mergedMeetings[ mergedMeetings.length - 1 ];
 
-        let index2 = index + 1;
-        while ( index2 <= times.length -1 ){
-
-            let checkStartTime = times[index2].startTime;
-            let checkEndTime = times[index2].endTime;
-
-            if ( ( checkStartTime >= timeBlockMin ) && ( checkStartTime <= timeBlockMax ) ){
-                index++;
-                index2++;
-                if ( checkEndTime > timeBlockMax ){
-                    timeBlockMax = checkEndTime;
-                }
-            } else if ( ( checkEndTime >= timeBlockMin ) && ( checkEndTime <= timeBlockMax ) ){
-                index++;
-                index2++;
-                if ( checkStartTime < timeBlockMin ){
-                    timeBlockMin = checkStartTime;
-                }
-            }
-
-            index2++;
+        if ( currentMeeting.startTime <= lastMergedMeeting.endTime ){
+            lastMergedMeeting.endTime = Math.max(currentMeeting.endTime, lastMergedMeeting.endTime);
+        } else {
+            mergedMeetings.push(currentMeeting);
         }
-        r.push({ startTime: timeBlockMin, endtime: timeBlockMax })
         index++
     }
 
-    return r
+    return mergedMeetings;
 }
 
 function testMeetings(){
@@ -91,7 +81,7 @@ function testMeetings(){
     ];
 
     for (t of tests){
-        console.log('Result:', mergeRanges(t), '\n')
+        console.log('Result:', mergeRanges(t), '\n');
     }
 
 }
